@@ -19,6 +19,9 @@ class Human {
 public:
     Human(int age, int tall, bool conviction, GENDER gender) : age(age), tall(tall), conviction(conviction) {
         this->gender = gender;
+        this->conviction = conviction;
+        this->age = age;
+        this->tall = tall;
     }
 
     int getAge() const {
@@ -73,12 +76,65 @@ public:
 };
 
 class BadStudent : public Student {
+    int valueOfDolgi;
+public:
+    BadStudent(int age, int tall, bool conviction, GENDER gender, const std::string &numberOfZachetka, int valueOfDolgi)
+            : Student(age,
+                      tall,
+                      conviction,
+                      gender, numberOfZachetka) {
+        this->valueOfDolgi = valueOfDolgi;
+    }
+
+    int getValueOfDolgi() {
+        return valueOfDolgi;
+    }
+
+    void setValueOfDolgi(int valueOfDolgi) {
+        this->valueOfDolgi = valueOfDolgi;
+    }
+
 };
 
 class GoodStudent : public Student {
+    int valueOfAutomates;
+public:
+    GoodStudent(int age, int tall, bool conviction, GENDER gender, const std::string &numberOfZachetka,
+                int valueOfAutomates)
+            : Student(age,
+                      tall,
+                      conviction,
+                      gender, numberOfZachetka) {
+        this->valueOfAutomates = valueOfAutomates;
+    }
+
+    int getValueOfAutomates() {
+        return valueOfAutomates;
+    }
+
+    void setValueOfAutomates(int valueOfAutomates) {
+        this->valueOfAutomates = valueOfAutomates;
+    }
 };
 
 class HardWorker : public Human {
+    std::string proffession;
+public:
+    HardWorker(int age, int tall, bool conviction, GENDER gender, const std::string &profession) : Human(age, tall,
+                                                                                                         conviction,
+                                                                                                         gender) {
+        this->proffession = profession;
+    }
+
+    const std::string &getProfession() {
+        return proffession;
+    }
+
+    void setProfession(std::string &profession) {
+        this->proffession = profession;
+    }
+
+
 };
 
 int main() {
